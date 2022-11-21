@@ -1,0 +1,2 @@
+# msal-playground
+MSAL playground
