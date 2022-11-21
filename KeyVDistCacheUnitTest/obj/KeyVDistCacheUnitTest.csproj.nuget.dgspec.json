@@ -1,0 +1,236 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/dev/repo/msal-playground/KeyVDistCacheUnitTest/KeyVDistCacheUnitTest.csproj": {}
+  },
+  "projects": {
+    "/Users/dev/repo/msal-playground/daemon-console/daemon-console.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dev/repo/msal-playground/daemon-console/daemon-console.csproj",
+        "projectName": "daemon-console",
+        "projectPath": "/Users/dev/repo/msal-playground/daemon-console/daemon-console.csproj",
+        "packagesPath": "/Users/dev/.nuget/packages/",
+        "outputPath": "/Users/dev/repo/msal-playground/daemon-console/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dev/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Azure.Security.KeyVault.Secrets": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "Ensure.That": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Microsoft.Extensions.Caching.Cosmos": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Identity.Web.Certificate": {
+              "target": "Package",
+              "version": "[1.18.0, )"
+            },
+            "Microsoft.Identity.Web.TokenCache": {
+              "target": "Package",
+              "version": "[2.0.5-preview, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[3.1.31, 3.1.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dev/repo/msal-playground/KeyVDistCacheUnitTest/KeyVDistCacheUnitTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dev/repo/msal-playground/KeyVDistCacheUnitTest/KeyVDistCacheUnitTest.csproj",
+        "projectName": "KeyVDistCacheUnitTest",
+        "projectPath": "/Users/dev/repo/msal-playground/KeyVDistCacheUnitTest/KeyVDistCacheUnitTest.csproj",
+        "packagesPath": "/Users/dev/.nuget/packages/",
+        "outputPath": "/Users/dev/repo/msal-playground/KeyVDistCacheUnitTest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dev/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/dev/repo/msal-playground/daemon-console/daemon-console.csproj": {
+                "projectPath": "/Users/dev/repo/msal-playground/daemon-console/daemon-console.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.9.0-beta.1, )"
+            },
+            "Azure.Security.KeyVault.Secrets": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "Ensure.That": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Microsoft.Extensions.Caching.Cosmos": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Identity.Web.Certificate": {
+              "target": "Package",
+              "version": "[1.18.0, )"
+            },
+            "Microsoft.Identity.Web.TokenCache": {
+              "target": "Package",
+              "version": "[2.0.5-preview, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.3.2, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
+            "NSubstitute": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

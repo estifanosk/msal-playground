@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{1488E678-E09D-4DBE-B0C9-BCB0A7135CE1}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IntegTest.cs">
+    <Files>
+      <File FileName="Usings.cs" Line="1" Column="1" />
+      <File FileName="IntegTest.cs" Line="27" Column="9" />
+      <File FileName="UnitTests.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="KeyVDistCacheUnitTest" expanded="True">
+            <Node name="KeyVDistCacheUnitTest" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="IntegTest.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.KeyVDistCacheUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
