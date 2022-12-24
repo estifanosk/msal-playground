@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = daemon_console
+build_property.ProjectDir = /Users/dev/repo/active-directory-dotnetcore-daemon-v2-master/1-Call-MSGraph/daemon-console/

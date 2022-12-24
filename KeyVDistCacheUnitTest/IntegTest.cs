@@ -32,7 +32,7 @@ public class IntegTests
     public async Task Verify_GetASyncReturns_EncodedString_IfSecretExists()
     {
 
-        String key = "client-id-0-0";
+        String key = "client-id-00-00";
         String secretValueEncoded = "c2VjcmV0VmFsdWU=";
 
         DistributedCacheEntryOptions options = new DistributedCacheEntryOptions();
@@ -53,7 +53,7 @@ public class IntegTests
     public async Task Verify_Get_Returns_EncodedString_IfSecretExists()
     {
 
-        String key = "client-id2-0-0";
+        String key = "client-id2-01-01";
         String secretValueEncoded = "c2VjcmV0VmFsdWU=";
 
         DistributedCacheEntryOptions options = new DistributedCacheEntryOptions();
@@ -70,14 +70,6 @@ public class IntegTests
         Assert.AreEqual( 404, ex.Status);
     }
 
-    private void Remove(string key)
-    {
-        Console.WriteLine("Remove called.");
-        DeleteSecretOperation operation = client.StartDeleteSecret(key);
-        operation.WaitForCompletion();
-        client.PurgeDeletedSecret(key);
-    }
-
     private static KeyVDistCacheOptions GetCacheOptions(SecretClient client)
     {
         return new KeyVDistCacheOptions()
@@ -87,7 +79,6 @@ public class IntegTests
     }
 
     
-
     public static string Base64Encode(string plainText) {
         var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
         return System.Convert.ToBase64String(plainTextBytes);

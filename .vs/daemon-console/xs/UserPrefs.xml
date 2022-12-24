@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{DE92BA34-DBCA-4087-BBAB-85AC833031BA}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="daemon-console/KeyVDistCache.cs">
+    <Files>
+      <File FileName="daemon-console/KeyVDistCache.cs" Line="112" Column="13" />
+      <File FileName="KeyVDistCacheUnitTest/UnitTests.cs" Line="50" Column="7" />
+      <File FileName="KeyVDistCacheUnitTest/IntegTest.cs" Line="56" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="daemon-console" expanded="True">
+            <Node name="daemon-console" expanded="True">
+              <Node name="KeyVDistCache.cs" selected="True" />
+            </Node>
+            <Node name="KeyVDistCacheUnitTest" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.daemon-console PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

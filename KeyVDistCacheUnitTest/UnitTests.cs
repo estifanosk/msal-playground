@@ -30,6 +30,7 @@ public class UnitTests
         Assert.AreEqual(Convert.ToBase64String(cache.Get("key")),secretValueEncoded);
     }
 
+    [Test]
     public void Verify_GetSyncReturns_Throws_IfSecretIsAbsent()
     {
 
@@ -37,7 +38,7 @@ public class UnitTests
         KeyVaultSecret secret1 = SecretModelFactory.KeyVaultSecret(new SecretProperties("secret"), secretValueEncoded);
       
         
-        Response<KeyVaultSecret> response = Substitute.For<Response<KeyVaultSecret>>();
+        Response<KeyVaultSecret> response = Response.FromValue(secret1, Mock.Of<Response>());
         SecretClient secretClientSubstitue = Substitute.For<SecretClient>();
         secretClientSubstitue.GetSecret(Arg.Any<String>()).Returns(response);
 

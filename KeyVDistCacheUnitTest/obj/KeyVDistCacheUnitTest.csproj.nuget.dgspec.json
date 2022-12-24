@@ -38,6 +38,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Azure.Extensions.AspNetCore.DataProtection.Blobs": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "Azure.Extensions.AspNetCore.DataProtection.Keys": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "Azure.Security.KeyVault.Secrets": {
               "target": "Package",
               "version": "[4.4.0, )"
@@ -52,27 +60,31 @@
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.Identity.Web.Certificate": {
               "target": "Package",
-              "version": "[1.18.0, )"
+              "version": "[1.25.10, )"
             },
             "Microsoft.Identity.Web.TokenCache": {
               "target": "Package",
               "version": "[2.0.5-preview, )"
             },
-            "Moq": {
+            "Microsoft.IdentityModel.Logging": {
               "target": "Package",
-              "version": "[4.18.2, )"
+              "version": "[6.25.1, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.2, )"
             }
           },
           "imports": [

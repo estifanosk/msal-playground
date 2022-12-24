@@ -21,6 +21,8 @@ public class KeyVDistCache : IDistributedCache
 
         public KeyVDistCache(IOptions<KeyVDistCacheOptions> options)
         {
+            Console.WriteLine("KeyVDistCache constructor");
+
             EnsureArg.IsNotNull(options,nameof(options));
             EnsureArg.IsNotNull(options.Value,nameof(options.Value));
             EnsureArg.IsNotNull(options.Value.SecretClient,nameof(KeyVDistCacheOptions.SecretClient));
@@ -36,14 +38,12 @@ public class KeyVDistCache : IDistributedCache
 
   
             KeyVaultSecret secret =_client.GetSecret(mapKey(key));
-
             if ( secret == null) {
                 Console.WriteLine("Get secret not found in keyvault");
                 return null;
             }
 
             if (secret.Properties.ExpiresOn<=_systemClock.UtcNow) {
-                Console.WriteLine("access token has expired.");
                 return null;
             }
 
@@ -52,8 +52,9 @@ public class KeyVDistCache : IDistributedCache
 
         public async Task<byte[]> GetAsync(string key, CancellationToken token = default(CancellationToken))
         {
-
-            EnsureArg.IsNotNullOrWhiteSpace(key, nameof(key));
+            if (key == null) {
+                throw new ArgumentNullException("key");
+            }
 
             token.ThrowIfCancellationRequested();
 
@@ -61,7 +62,6 @@ public class KeyVDistCache : IDistributedCache
             KeyVaultSecret secret = await _client.GetSecretAsync(mapKey(key), String.Empty,token);
         
             if (secret == null) {
-                Console.WriteLine("Get secret not found in keyvault");
                 return null;
             }
 
@@ -76,18 +76,16 @@ public class KeyVDistCache : IDistributedCache
 
         public void Refresh(string key)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Refresh called.key:" + key);
         }
 
         public async Task RefreshAsync(string key, CancellationToken token = default(CancellationToken))
         {
-            await Task.Run(() => throw new NotImplementedException());
+            await Task.Run(() =>  Console.WriteLine("RefreshAsync called.key:" + key));
         }
 
         public void Remove(string key)
         {
-            EnsureArg.IsNotNullOrWhiteSpace(key, nameof(key));
-
             Console.WriteLine("Remove called.");
             DeleteSecretOperation operation = _client.StartDeleteSecret(mapKey(key));
             operation.WaitForCompletion();
@@ -96,38 +94,65 @@ public class KeyVDistCache : IDistributedCache
 
         public async Task RemoveAsync(string key, CancellationToken token = default(CancellationToken))
         {
-            EnsureArg.IsNotNullOrWhiteSpace(key, nameof(key));
-
             Console.WriteLine("RemoveAsync invoked.");
-
             DeleteSecretOperation operation = await _client.StartDeleteSecretAsync(mapKey(key),token);
-            var response = await operation.WaitForCompletionAsync(token);
+            await operation.WaitForCompletionAsync(token);
             await _client.PurgeDeletedSecretAsync(mapKey(key),token);
         }
 
         public void Set(string key, byte[] value, DistributedCacheEntryOptions options)
         {
-            EnsureArg.IsNotNullOrWhiteSpace(key, nameof(key));
+            try {
 
-            Console.WriteLine("Set called.");
-            Console.WriteLine("Set, absolute exp:" + options.ToString());
-            KeyVaultSecret secret = new KeyVaultSecret(mapKey(key), Convert.ToBase64String(value));
-            secret.Properties.ExpiresOn = options.AbsoluteExpiration;
+                if ( DoesSecretExist(key, CancellationToken.None).GetAwaiter().GetResult()) {
+                    Remove(key);
+                }
 
-            Remove(key);
-            _client.SetSecret(secret,CancellationToken.None);
+                Console.WriteLine("Set called.");
+                Console.WriteLine("Set, absolute exp:" + options.ToString());
+                KeyVaultSecret secret = new KeyVaultSecret(mapKey(key), Convert.ToBase64String(value));
+                secret.Properties.ExpiresOn = options.AbsoluteExpiration;
+
+
+                _client.SetSecret(secret,CancellationToken.None);
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
 
         public async Task SetAsync(string key, byte[] value, DistributedCacheEntryOptions options, CancellationToken token = default(CancellationToken))
         {
-            EnsureArg.IsNotNullOrWhiteSpace(key, nameof(key));
+            try 
+            {
+                //if (await DoesSecretExist(key,token)) {
+                //    await RemoveAsync(mapKey(key));
+               // }
 
-            Console.WriteLine("SetAsync called.");
-            KeyVaultSecret secret = new KeyVaultSecret(mapKey(key), Convert.ToBase64String(value));
-            secret.Properties.ExpiresOn = options.AbsoluteExpiration;
+                Console.WriteLine("SetAsync called.");
+                KeyVaultSecret secret = new KeyVaultSecret(mapKey(key), Convert.ToBase64String(value));
+                secret.Properties.ExpiresOn = options.AbsoluteExpiration;
 
-            await RemoveAsync(key);
-            await _client.SetSecretAsync(secret, token);
+                await _client.SetSecretAsync(secret, token);
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        private async Task<bool> DoesSecretExist(string key, CancellationToken token)
+        {
+            try
+            {
+                KeyVaultSecret secret = await _client.GetSecretAsync(mapKey(key), String.Empty,token);
+                return secret!=null;
+            }
+            catch (RequestFailedException ex) when (ex.ErrorCode.Equals("SecretNotFound"))
+            {
+                return false;
+            }
         }
 
         private String mapKey(String key) {
